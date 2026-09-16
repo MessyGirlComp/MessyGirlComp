@@ -248,150 +248,180 @@
         align-items: center;
     }
 
+/* =========================================================
+   IMAGE CAROUSEL
+========================================================= */
 
-    /* =========================================================
-       IMAGE CAROUSEL
-    ========================================================= */
+.carousel {
+    position: relative;
 
-    .carousel {
-        position: relative;
+    width: 100%;
 
-        width: 100%;
+    overflow: hidden;
 
-        overflow: hidden;
+    border-radius: 15px;
 
-        border-radius: 15px;
+    background: #eee;
+}
 
-        background: #eee;
-    }
+.carousel-image-wrapper {
+    position: relative;
+
+    width: 100%;
+
+    /* Makes the carousel taller without increasing its width */
+    height: 650px;
+
+    overflow: hidden;
+}
+
+.carousel-image {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    /* Keeps the complete image visible */
+    object-fit: contain;
+
+    opacity: 0;
+
+    transition: opacity 0.5s ease;
+}
+
+.carousel-image.active {
+    opacity: 1;
+}
+
+
+/* =========================================================
+   CAROUSEL ARROWS
+========================================================= */
+
+.carousel-arrow {
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    color: white;
+
+    font-size: 27px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 5;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.carousel-arrow:hover {
+    background: rgba(0, 0, 0, 0.9);
+
+    transform:
+        translateY(-50%)
+        scale(1.05);
+}
+
+.carousel-arrow.prev {
+    left: 15px;
+}
+
+.carousel-arrow.next {
+    right: 15px;
+}
+
+
+/* =========================================================
+   CAROUSEL DOTS
+========================================================= */
+
+.carousel-dots {
+    position: absolute;
+
+    bottom: 15px;
+
+    left: 0;
+    right: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    z-index: 5;
+}
+
+.carousel-dot {
+    width: 11px;
+    height: 11px;
+
+    border-radius: 50%;
+
+    border: 2px solid white;
+
+    background: rgba(0, 0, 0, 0.35);
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.carousel-dot.active {
+    background: white;
+
+    transform: scale(1.15);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
 
     .carousel-image-wrapper {
-        position: relative;
-
-        width: 100%;
-
-        aspect-ratio: 4 / 3;
-
-        overflow: hidden;
+        height: 600px;
     }
 
-    .carousel-image {
-        position: absolute;
+}
 
-        inset: 0;
 
-        width: 100%;
-        height: 100%;
+/* =========================================================
+   MOBILE
+========================================================= */
 
-        object-fit: contain;
+@media (max-width: 600px) {
 
-        opacity: 0;
-
-        transition: opacity 0.5s ease;
+    .carousel-image-wrapper {
+        height: 500px;
     }
 
-    .carousel-image.active {
-        opacity: 1;
-    }
+}
+```
 
-
-    /* =========================================================
-       CAROUSEL ARROWS
-    ========================================================= */
-
-    .carousel-arrow {
-        position: absolute;
-
-        top: 50%;
-
-        transform: translateY(-50%);
-
-        width: 45px;
-        height: 45px;
-
-        border: none;
-
-        border-radius: 50%;
-
-        background: rgba(0, 0, 0, 0.65);
-
-        color: white;
-
-        font-size: 27px;
-
-        cursor: pointer;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        z-index: 5;
-
-        transition:
-            background 0.2s ease,
-            transform 0.2s ease;
-    }
-
-    .carousel-arrow:hover {
-        background: rgba(0, 0, 0, 0.9);
-
-        transform:
-            translateY(-50%)
-            scale(1.05);
-    }
-
-    .carousel-arrow.prev {
-        left: 15px;
-    }
-
-    .carousel-arrow.next {
-        right: 15px;
-    }
-
-
-    /* =========================================================
-       CAROUSEL DOTS
-    ========================================================= */
-
-    .carousel-dots {
-        position: absolute;
-
-        bottom: 15px;
-
-        left: 0;
-        right: 0;
-
-        display: flex;
-
-        justify-content: center;
-
-        gap: 8px;
-
-        z-index: 5;
-    }
-
-    .carousel-dot {
-        width: 11px;
-        height: 11px;
-
-        border-radius: 50%;
-
-        border: 2px solid white;
-
-        background: rgba(0, 0, 0, 0.35);
-
-        cursor: pointer;
-
-        transition:
-            background 0.2s ease,
-            transform 0.2s ease;
-    }
-
-    .carousel-dot.active {
-        background: white;
-
-        transform: scale(1.15);
-    }
 
 
     /* =========================================================
@@ -1171,7 +1201,7 @@
             <div class="profile-info">
 
                 <h2 class="girl-name">
-                    Girl 001
+                    Amy
                 </h2>
 
 
@@ -1182,7 +1212,7 @@
                     </span>
 
                     <div class="profile-value">
-                        18
+                        11
                     </div>
 
                 </div>
@@ -1195,10 +1225,7 @@
                     </span>
 
                     <div class="profile-value">
-                        Add the girl's biography here. This can
-                        include information about her background,
-                        personality and why she is taking part in
-                        the MEGA Messy Tournament.
+                       Amy loves whale watching and is fascinated by the gunge pool—even though she thinks it looks incredibly sticky! She knows that staying out of the pool is important if she wants to win, but she also admits that it looks like a lot of fun. After getting gunged, Amy discovered just how sticky it really was. She described it as feeling “sticky and horrible,” with lumps at the bottom of the pool!
                     </div>
 
                 </div>
@@ -1211,8 +1238,7 @@
                     </span>
 
                     <div class="profile-value">
-                        Add a general description of her appearance,
-                        hairstyle and outfit here.
+                        Amy has short brown hair tied back into a ponytail with a purple hairband. She is wearing a light pink/red top paired with dark navy blue jeans, giving her a simple and casual look.
                     </div>
 
                 </div>
@@ -1227,7 +1253,7 @@
                     <div class="profile-value">
 
                         <span class="status">
-                            Currently Competing
+                            Currently Competing in Group 7
                         </span>
 
                     </div>
@@ -1240,7 +1266,7 @@
                 ================================================== -->
 
                 <a
-                    href="../tournament/groups/group-1.html"
+                    href="../../../../qualifying/groups/group7.html"
                     class="vote-button"
                 >
                     🗳️ VOTE FOR HER
@@ -1263,11 +1289,11 @@
         <div class="section-heading">
 
             <h2>
-                Girl 001 Video
+                Amy Gunge Video
             </h2>
 
             <p>
-                Watch her tournament profile video
+                Watch Amy get gunged.
             </p>
 
         </div>
