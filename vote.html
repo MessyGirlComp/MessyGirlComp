@@ -1,0 +1,1091 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vote - MEGA Messy Tournament</title>
+
+    <style>
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #171717;
+            min-height: 100vh;
+        }
+
+        button,
+        select {
+            font-family: inherit;
+        }
+
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(255, 255, 255, 0.97);
+
+            border-bottom: 1px solid #e5e7eb;
+
+            box-shadow:
+                0 4px 20px rgba(0, 0, 0, 0.07);
+        }
+
+        .header-inner {
+            max-width: 1400px;
+            min-height: 72px;
+
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+
+            padding: 12px 25px;
+        }
+
+        .logo {
+            text-decoration: none;
+            color: #171717;
+
+            font-size: 1.15rem;
+            font-weight: 900;
+
+            white-space: nowrap;
+        }
+
+        .logo span {
+            display: block;
+
+            margin-top: 3px;
+
+            font-size: 0.68rem;
+
+            letter-spacing: 1px;
+
+            opacity: 0.5;
+        }
+
+        nav {
+            display: flex;
+            gap: 7px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #171717;
+
+            padding: 10px 14px;
+
+            border-radius: 9px;
+
+            font-size: 0.86rem;
+            font-weight: 700;
+        }
+
+        nav a:hover {
+            background: #f0f2f5;
+        }
+
+
+        /* =========================================================
+           MAIN
+        ========================================================= */
+
+        main {
+            max-width: 1250px;
+
+            margin: auto;
+
+            padding: 50px 20px 75px;
+        }
+
+
+        /* =========================================================
+           PAGE HEADER
+        ========================================================= */
+
+        .page-header {
+            text-align: center;
+
+            margin-bottom: 35px;
+        }
+
+        .stage-label {
+            display: inline-block;
+
+            padding: 7px 13px;
+
+            border-radius: 20px;
+
+            background: #e9edf3;
+
+            font-size: 0.7rem;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 14px;
+        }
+
+        .page-header h1 {
+            font-size: clamp(2rem, 5vw, 3.6rem);
+
+            font-weight: 900;
+        }
+
+        .page-header p {
+            margin-top: 10px;
+
+            font-size: 0.92rem;
+
+            opacity: 0.55;
+        }
+
+
+        /* =========================================================
+           GROUP SELECTOR
+        ========================================================= */
+
+        .group-selector {
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            gap: 12px;
+
+            margin-bottom: 35px;
+        }
+
+        .group-selector label {
+            font-size: 0.78rem;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+            opacity: 0.55;
+        }
+
+        .group-select {
+            min-width: 190px;
+
+            padding: 12px 40px 12px 14px;
+
+            border: 1px solid #dfe3e8;
+
+            border-radius: 10px;
+
+            background: white;
+
+            font-size: 0.9rem;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            outline: none;
+        }
+
+        .group-select:focus {
+            border-color: #999;
+        }
+
+
+        /* =========================================================
+           GROUP PANEL
+        ========================================================= */
+
+        .group-panel {
+            display: none;
+        }
+
+        .group-panel.active {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+
+        /* =========================================================
+           GROUP INFORMATION
+        ========================================================= */
+
+        .group-info {
+            text-align: center;
+
+            margin-bottom: 28px;
+        }
+
+        .group-info h2 {
+            font-size: 2rem;
+
+            font-weight: 900;
+        }
+
+        .group-info p {
+            margin-top: 7px;
+
+            font-size: 0.85rem;
+
+            opacity: 0.55;
+        }
+
+
+        /* =========================================================
+           VOTE GRID
+        ========================================================= */
+
+        .vote-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, minmax(0, 1fr));
+
+            gap: 20px;
+        }
+
+        .vote-card {
+            position: relative;
+
+            background: white;
+
+            border: 2px solid transparent;
+
+            border-radius: 17px;
+
+            overflow: hidden;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.06);
+
+            transition:
+                transform 0.2s ease,
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .vote-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .vote-card.selected {
+            border-color: #171717;
+
+            box-shadow:
+                0 12px 35px rgba(0, 0, 0, 0.14);
+        }
+
+        .vote-card.voted {
+            pointer-events: none;
+        }
+
+        .vote-image {
+            width: 100%;
+
+            height: 260px;
+
+            object-fit: cover;
+
+            display: block;
+        }
+
+        .vote-info {
+            padding: 16px;
+        }
+
+        .contestant-number {
+            font-size: 0.68rem;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            opacity: 0.45;
+        }
+
+        .contestant-name {
+            margin-top: 5px;
+
+            font-size: 1.1rem;
+
+            font-weight: 900;
+        }
+
+
+        /* =========================================================
+           SELECTION CIRCLE
+        ========================================================= */
+
+        .radio {
+            position: absolute;
+
+            top: 12px;
+            right: 12px;
+
+            width: 30px;
+            height: 30px;
+
+            border-radius: 50%;
+
+            background: white;
+
+            border: 2px solid #d5d9df;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+        }
+
+        .vote-card.selected .radio {
+            background: #171717;
+
+            border-color: #171717;
+        }
+
+        .vote-card.selected .radio::after {
+            content: "";
+
+            width: 9px;
+            height: 9px;
+
+            border-radius: 50%;
+
+            background: white;
+        }
+
+
+        /* =========================================================
+           GOOGLE FORM
+        ========================================================= */
+
+         .google-form-container {
+            max-width: 1250px;
+            margin: 0 auto;
+            align-self: center;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .google-form-container iframe {
+            display: block;
+            width: 1250px;
+            height: 800px;
+		margin: 0 auto;
+            align-self: center;
+            border: 0;
+        }
+
+        @media (max-width: 650px) {
+            .google-form-container {
+                width: 100%;
+                border-radius: 12px;
+            }
+
+            .google-form-container iframe {
+                height: 1100px;
+            }
+        }
+        }
+
+
+        /* =========================================================
+           NAVIGATION BUTTONS
+        ========================================================= */
+
+        .group-navigation {
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 15px;
+
+            margin-top: 40px;
+        }
+
+        .group-nav-button {
+            border: 1px solid #dfe3e8;
+
+            background: white;
+
+            color: #171717;
+
+            padding: 13px 22px;
+
+            border-radius: 10px;
+
+            font-size: 0.88rem;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .group-nav-button:hover:not(:disabled) {
+            background: #eef0f3;
+
+            transform: translateY(-2px);
+        }
+
+        .group-nav-button:disabled {
+            opacity: 0.35;
+
+            cursor: not-allowed;
+        }
+
+
+        /* =========================================================
+           SUBMIT AREA
+        ========================================================= */
+
+        .submit-area {
+            text-align: center;
+
+            margin-top: 30px;
+        }
+
+        .submit-button {
+            border: none;
+
+            background: #171717;
+
+            color: white;
+
+            padding: 15px 35px;
+
+            border-radius: 11px;
+
+            font-size: 0.95rem;
+
+            font-weight: 900;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.2s ease,
+                opacity 0.2s ease;
+        }
+
+        .submit-button:hover:not(:disabled) {
+            transform: translateY(-2px);
+        }
+
+        .submit-button:disabled {
+            opacity: 0.35;
+
+            cursor: not-allowed;
+        }
+
+        .message {
+            min-height: 24px;
+
+            margin-top: 18px;
+
+            font-size: 0.9rem;
+
+            font-weight: 700;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            background: white;
+
+            border-top: 1px solid #e2e5e9;
+
+            padding: 25px 20px;
+
+            text-align: center;
+
+            font-size: 0.8rem;
+
+            opacity: 0.7;
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 1000px) {
+
+            .vote-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            .header-inner {
+                flex-direction: column;
+
+                gap: 12px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+
+            main {
+                padding:
+                    35px 15px 55px;
+            }
+
+            .group-selector {
+                flex-direction: column;
+            }
+
+            .group-select {
+                width: 100%;
+            }
+
+            .vote-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .vote-image {
+                height: 320px;
+            }
+
+            .group-navigation {
+                flex-direction: column;
+            }
+
+            .group-nav-button {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header>
+
+    <div class="header-inner">
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+            MEGA Messy Tournament
+
+            <span>
+                Season 1
+            </span>
+        </a>
+
+
+        <nav>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="qualifying/index.html">
+                Qualifying
+            </a>
+
+            <a href="girls/index.html">
+                Girls Profiles
+            </a>
+
+            <a href="news/index.html">
+                News
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main>
+
+
+    <!-- PAGE HEADER -->
+
+    <section class="page-header">
+
+        <div
+            class="stage-label"
+            id="stageLabel"
+        >
+            Qualifying Stage
+        </div>
+
+        <h1>
+            Community Voting
+        </h1>
+
+        <p>
+            Select one contestant from each group.
+        </p>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         GROUP DROPDOWN
+    ====================================================== -->
+
+    <div class="group-selector">
+
+        <label for="groupSelect">
+            Select Group
+        </label>
+
+        <select
+            id="groupSelect"
+            class="group-select"
+        >
+
+            <option value="1">
+                Group 1
+            </option>
+
+            <option value="2">
+                Group 2
+            </option>
+
+            <option value="3">
+                Group 3
+            </option>
+
+            <option value="4">
+                Group 4
+            </option>
+
+            <option value="5">
+                Group 5
+            </option>
+
+            <option value="6">
+                Group 6
+            </option>
+
+            <option value="7">
+                Group 7
+            </option>
+
+            <option value="8">
+                Group 8
+            </option>
+
+        </select>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         GROUP 1
+    ====================================================== -->
+
+    <section
+        class="group-panel active"
+        data-group="1"
+    >
+
+        <div class="group-info">
+
+            <h2>
+                Group 1
+            </h2>
+
+            <p>
+                Select your favourite contestant.
+            </p>
+
+        </div>
+
+
+        <div class="vote-grid">
+            <div class="google-form-container">
+                <iframe
+                    src="https://forms.gle/VSh3DTowTqoTarpk9"
+                    title="Group 1 Community Vote"
+                    loading="lazy"
+                >
+                    Loading Google Form...
+                </iframe>
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         GROUP 2
+    ====================================================== -->
+
+    <section
+        class="group-panel"
+        data-group="2"
+    >
+
+        <div class="group-info">
+
+            <h2>
+                Group 2
+            </h2>
+
+            <p>
+                Select your favourite contestant.
+            </p>
+
+        </div>
+
+
+        <div class="vote-grid">
+            <div class="google-form-container">
+                <iframe
+                    src="https://docs.google.com/forms/d/e/FORM_ID_GROUP2/viewform?embedded=true"
+                    title="Group 2 Community Vote"
+                    loading="lazy"
+                >
+                    Loading Google Form...
+                </iframe>
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         GROUP 3
+    ====================================================== -->
+
+    <section
+        class="group-panel"
+        data-group="3"
+    >
+
+        <div class="group-info">
+            <h2>Group 3</h2>
+            <p>Select your favourite contestant.</p>
+        </div>
+
+        <div class="vote-grid">
+            <div class="google-form-container">
+                <iframe
+                    src="https://docs.google.com/forms/d/e/FORM_ID_GROUP3/viewform?embedded=true"
+                    title="Group 3 Community Vote"
+                    loading="lazy"
+                >
+                    Loading Google Form...
+                </iframe>
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         GROUP 4
+    ====================================================== -->
+
+    <section class="group-panel" data-group="4">
+
+        <div class="group-info">
+            <h2>Group 4</h2>
+            <p>Select your favourite contestant.</p>
+        </div>
+
+        <div class="vote-grid">
+            <div class="google-form-container">
+                <iframe
+                    src="https://docs.google.com/forms/d/e/FORM_ID_GROUP4/viewform?embedded=true"
+                    title="Group 4 Community Vote"
+                    loading="lazy"
+                >
+                    Loading Google Form...
+                </iframe>
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         GROUP 5
+    ====================================================== -->
+
+    <section class="group-panel" data-group="5">
+
+        <div class="group-info">
+            <h2>Group 5</h2>
+            <p>Select your favourite contestant.</p>
+        </div>
+
+        <div class="vote-grid">
+            <div class="google-form-container">
+                <iframe
+                    src="https://docs.google.com/forms/d/e/FORM_ID_GROUP5/viewform?embedded=true"
+                    title="Group 5 Community Vote"
+                    loading="lazy"
+                >
+                    Loading Google Form...
+                </iframe>
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         GROUP 6
+    ====================================================== -->
+
+    <section class="group-panel" data-group="6">
+
+        <div class="group-info">
+            <h2>Group 6</h2>
+            <p>Select your favourite contestant.</p>
+        </div>
+
+        <div class="vote-grid">
+            <div class="google-form-container">
+                <iframe
+                    src="https://docs.google.com/forms/d/e/FORM_ID_GROUP6/viewform?embedded=true"
+                    title="Group 6 Community Vote"
+                    loading="lazy"
+                >
+                    Loading Google Form...
+                </iframe>
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         GROUP 7
+    ====================================================== -->
+
+    <section class="group-panel" data-group="7">
+
+        <div class="group-info">
+            <h2>Group 7</h2>
+            <p>Select your favourite contestant.</p>
+        </div>
+
+        <div class="vote-grid">
+            <div class="google-form-container">
+                <iframe
+                    src="https://docs.google.com/forms/d/e/FORM_ID_GROUP7/viewform?embedded=true"
+                    title="Group 7 Community Vote"
+                    loading="lazy"
+                >
+                    Loading Google Form...
+                </iframe>
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         GROUP 8
+    ====================================================== -->
+
+    <section class="group-panel" data-group="8">
+
+        <div class="group-info">
+            <h2>Group 8</h2>
+            <p>Select your favourite contestant.</p>
+        </div>
+
+        <div class="vote-grid">
+            <div class="google-form-container">
+                <iframe
+                    src="https://docs.google.com/forms/d/e/FORM_ID_GROUP8/viewform?embedded=true"
+                    title="Group 8 Community Vote"
+                    loading="lazy"
+                >
+                    Loading Google Form...
+                </iframe>
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         GROUP NAVIGATION
+    ====================================================== -->
+
+    <div class="group-navigation">
+
+        <button
+            class="group-nav-button"
+            id="previousGroup"
+        >
+            ← Previous Group
+        </button>
+
+        <button
+            class="group-nav-button"
+            id="nextGroup"
+        >
+            Next Group →
+        </button>
+
+    </div>
+
+
+
+
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    © 2026 MEGA Messy Tournament. All rights reserved.
+
+</footer>
+
+
+
+<script>
+
+    /* =========================================================
+       GROUP NAVIGATION
+    ========================================================= */
+
+    const TOTAL_GROUPS = 8;
+    let currentGroup = 1;
+
+    const groupSelect = document.getElementById("groupSelect");
+    const previousButton = document.getElementById("previousGroup");
+    const nextButton = document.getElementById("nextGroup");
+
+    function showGroup(groupNumber) {
+
+        currentGroup = groupNumber;
+
+        document.querySelectorAll(".group-panel").forEach(panel => {
+            panel.classList.remove("active");
+        });
+
+        const selectedPanel = document.querySelector(
+            `.group-panel[data-group="${groupNumber}"]`
+        );
+
+        if (selectedPanel) {
+            selectedPanel.classList.add("active");
+        }
+
+        groupSelect.value = String(groupNumber);
+
+        previousButton.disabled = groupNumber === 1;
+        nextButton.disabled = groupNumber === TOTAL_GROUPS;
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+
+    groupSelect.addEventListener("change", function () {
+        showGroup(Number(this.value));
+    });
+
+    previousButton.addEventListener("click", function () {
+        if (currentGroup > 1) {
+            showGroup(currentGroup - 1);
+        }
+    });
+
+    nextButton.addEventListener("click", function () {
+        if (currentGroup < TOTAL_GROUPS) {
+            showGroup(currentGroup + 1);
+        }
+    });
+
+    showGroup(1);
+
+</script>
+
+
+</body>
+</html>

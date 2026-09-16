@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MEGA Messy Tournament - Season 1</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            color: white;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 30px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .title {
+            font-size: clamp(2rem, 6vw, 4.5rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .season {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-weight: 700;
+            margin-bottom: 50px;
+            opacity: 0.85;
+        }
+
+        .countdown-title {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+            opacity: 0.8;
+        }
+
+        .countdown {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .time-box {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 30px 15px;
+
+            backdrop-filter: blur(10px);
+
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .number {
+            display: block;
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .label {
+            display: block;
+            margin-top: 12px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.7;
+        }
+
+        .date {
+            margin-top: 35px;
+            font-size: 1rem;
+            opacity: 0.65;
+        }
+		
+	/* HOME BUTTON */ .home-button { display: inline-block; margin-top: 30px; padding: 14px 30px; background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 12px; color: white; text-decoration: none; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; transition: 0.25s ease; backdrop-filter: blur(10px); } .home-button:hover { background: rgba(255, 255, 255, 0.22); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); } .home-button:active { transform: translateY(0); }
+
+        .finished {
+            font-size: 2rem;
+            font-weight: 800;
+            padding: 30px;
+        }
+
+        @media (max-width: 600px) {
+            .countdown {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .time-box {
+                padding: 25px 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <h1 class="title">MEGA Messy Tournament</h1>
+
+        <div class="season">Season 1</div>
+
+        <div class="countdown-title">
+            Tournament Starts In
+        </div>
+
+        <div class="countdown" id="countdown">
+
+            <div class="time-box">
+                <span class="number" id="days">00</span>
+                <span class="label">Days</span>
+            </div>
+
+            <div class="time-box">
+                <span class="number" id="hours">00</span>
+                <span class="label">Hours</span>
+            </div>
+
+            <div class="time-box">
+                <span class="number" id="minutes">00</span>
+                <span class="label">Minutes</span>
+            </div>
+
+            <div class="time-box">
+                <span class="number" id="seconds">00</span>
+                <span class="label">Seconds</span>
+            </div>
+
+        </div>
+
+        <div class="date">
+            1 December 2026
+        </div>
+		
+		<!-- HOME BUTTON --> <a href="home.html" class="home-button">Home </a>
+
+    </main>
+
+    <script>
+        // Tournament start date:
+        // 1 December 2026 at 12:00:00 AM
+        const tournamentDate = new Date("2026-12-01T00:00:00");
+
+        function updateCountdown() {
+
+            const now = new Date();
+            const difference = tournamentDate - now;
+
+            if (difference <= 0) {
+                document.getElementById("countdown").innerHTML = `
+                    <div class="finished">
+                        🎉 The MEGA Messy Tournament has started!
+                    </div>
+                `;
+
+                return;
+            }
+
+            const days = Math.floor(
+                difference / (1000 * 60 * 60 * 24)
+            );
+
+            const hours = Math.floor(
+                (difference / (1000 * 60 * 60)) % 24
+            );
+
+            const minutes = Math.floor(
+                (difference / (1000 * 60)) % 60
+            );
+
+            const seconds = Math.floor(
+                (difference / 1000) % 60
+            );
+
+            document.getElementById("days").textContent =
+                String(days).padStart(2, "0");
+
+            document.getElementById("hours").textContent =
+                String(hours).padStart(2, "0");
+
+            document.getElementById("minutes").textContent =
+                String(minutes).padStart(2, "0");
+
+            document.getElementById("seconds").textContent =
+                String(seconds).padStart(2, "0");
+        }
+
+        // Update immediately
+        updateCountdown();
+
+        // Update every second
+        setInterval(updateCountdown, 1000);
+    </script>
+
+</body>
+</html>
