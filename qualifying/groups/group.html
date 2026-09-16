@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Qualifying Group | MEGA Messy Tournament</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f6f8;
+            color: #222;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        .site-header {
+            background: #111;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 18px 30px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .site-logo {
+            color: white;
+            text-decoration: none;
+            font-size: 22px;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        .site-logo span {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            opacity: 0.65;
+            margin-top: 2px;
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .main-nav > a,
+        .dropdown-button {
+            color: white;
+            background: transparent;
+            border: none;
+            text-decoration: none;
+
+            padding: 10px 13px;
+            font-size: 14px;
+            font-weight: 600;
+
+            border-radius: 7px;
+            cursor: pointer;
+        }
+
+        .main-nav > a:hover,
+        .dropdown-button:hover {
+            background: #2a2a2a;
+        }
+
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .dropdown-button {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 5px);
+            right: 0;
+
+            background: white;
+            min-width: 210px;
+
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+            padding: 7px;
+
+            display: none;
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            display: block;
+
+            color: #222;
+            text-decoration: none;
+
+            padding: 10px 12px;
+            border-radius: 7px;
+
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .dropdown-menu a:hover {
+            background: #f0f0f0;
+        }
+
+
+        /* =========================================================
+           PAGE
+        ========================================================= */
+
+        .page-container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+
+            padding: 45px 30px 60px;
+
+            flex: 1;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 38px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .page-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 17px;
+            margin-bottom: 40px;
+        }
+
+
+        /* =========================================================
+           GROUP GRID
+        ========================================================= */
+
+        .girls-grid {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 25px;
+
+            width: 100%;
+        }
+
+        .girl-card {
+            background: white;
+
+            border-radius: 16px;
+
+            overflow: hidden;
+
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .girl-card:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 10px 28px rgba(0,0,0,0.14);
+        }
+
+        .girl-image-wrapper {
+            width: 100%;
+
+            aspect-ratio: 1 / 1;
+
+            background: #eee;
+
+            overflow: hidden;
+        }
+
+        .girl-image {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+        }
+
+        .girl-info {
+            padding: 18px;
+
+            text-align: center;
+        }
+
+        .girl-name {
+            font-size: 21px;
+            font-weight: 800;
+
+            margin-bottom: 14px;
+        }
+
+        .profile-button {
+            display: inline-block;
+
+            padding: 9px 15px;
+
+            background: #111;
+            color: white;
+
+            border-radius: 7px;
+
+            text-decoration: none;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            transition: background 0.2s ease;
+        }
+
+        .profile-button:hover {
+            background: #333;
+        }
+
+
+        /* =========================================================
+           VOTE AREA
+        ========================================================= */
+
+        .vote-area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            margin-top: 50px;
+        }
+
+        .vote-button {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 18px 38px;
+
+            background: #111;
+            color: white;
+
+            border: none;
+            border-radius: 10px;
+
+            text-decoration: none;
+
+            font-size: 18px;
+            font-weight: 800;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .vote-button:hover {
+            background: #2a2a2a;
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 8px 20px rgba(0,0,0,0.2);
+        }
+
+
+        /* =========================================================
+           ERROR
+        ========================================================= */
+
+        .error-message {
+            display: none;
+
+            max-width: 650px;
+
+            margin: 60px auto;
+
+            padding: 30px;
+
+            background: white;
+
+            border-radius: 15px;
+
+            text-align: center;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .error-message h2 {
+            margin-bottom: 10px;
+        }
+
+        .error-message p {
+            color: #666;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        .site-footer {
+            background: #111;
+            color: #aaa;
+
+            text-align: center;
+
+            padding: 25px 20px;
+
+            font-size: 13px;
+
+            margin-top: auto;
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 1000px) {
+
+            .girls-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .header-inner {
+                flex-direction: column;
+            }
+
+            .main-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .page-container {
+                padding: 30px 15px 45px;
+            }
+
+            .page-title {
+                font-size: 29px;
+            }
+
+            .page-subtitle {
+                font-size: 15px;
+            }
+
+            .girls-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .vote-button {
+                width: 100%;
+                font-size: 16px;
+            }
+
+            .site-logo {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="site-header">
+
+    <div class="header-inner">
+
+        <a href="../../index.html" class="site-logo">
+            MEGA Messy Tournament
+            <span>Season 1</span>
+        </a>
+
+        <nav class="main-nav">
+
+            <a href="../../index.html">
+                Home
+            </a>
+
+
+            <!-- QUALIFYING STAGE -->
+
+            <div class="nav-dropdown">
+
+                <button class="dropdown-button">
+                    Qualifying Stage
+                    <span>⌄</span>
+                </button>
+
+                <div class="dropdown-menu">
+
+                    <a href="../../qualifying/index.html">
+                        Qualifying Home
+                    </a>
+
+                    <a href="../../qualifying/groups/index.html">
+                        Group Stages
+                    </a>
+
+                    <a href="../../qualifying/wildcard.html">
+                        Wildcard Stage
+                    </a>
+
+                    <a href="../../qualifying/eliminated.html">
+                        Eliminated Girls
+                    </a>
+
+                    <a href="../../qualifying/qualified.html">
+                        Qualified Girls
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- TOURNAMENT STAGE -->
+
+            <div class="nav-dropdown">
+
+                <button class="dropdown-button">
+                    Tournament Stage
+                    <span>⌄</span>
+                </button>
+
+                <div class="dropdown-menu">
+
+                    <a href="../../tournament/groups/index.html">
+                        Group Stages
+                    </a>
+
+                    <a href="../../tournament/round32.html">
+                        Round of 32
+                    </a>
+
+                    <a href="../../tournament/quarter-finals.html">
+                        Quarter Finals
+                    </a>
+
+                    <a href="../../tournament/semi-finals.html">
+                        Semi Finals
+                    </a>
+
+                    <a href="../../tournament/grand-finals.html">
+                        Grand Finals
+                    </a>
+
+                    <a href="../../tournament/third-place.html">
+                        3rd Place Match
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- GIRLS PROFILES -->
+
+            <div class="nav-dropdown">
+
+                <button class="dropdown-button">
+                    Girls Profiles
+                    <span>⌄</span>
+                </button>
+
+                <div class="dropdown-menu">
+
+                    <a href="../../girls/index.html">
+                        All Girls
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <a href="../../news/index.html">
+                News
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     MAIN CONTENT
+========================================================= -->
+
+<main class="page-container">
+
+    <h1 class="page-title" id="groupTitle">
+        Qualifying Group
+    </h1>
+
+    <p class="page-subtitle" id="groupSubtitle">
+        Select your favourite girl to vote for her to move on.
+    </p>
+
+
+    <!-- =====================================================
+         GIRLS GRID
+    ====================================================== -->
+
+    <div class="girls-grid" id="girlsGrid">
+        <!-- Girls automatically inserted here -->
+    </div>
+
+
+    <!-- =====================================================
+         ERROR MESSAGE
+    ====================================================== -->
+
+    <div class="error-message" id="errorMessage">
+
+        <h2>
+            Group Not Found
+        </h2>
+
+        <p>
+            The qualifying group you are looking for does not exist.
+        </p>
+
+    </div>
+
+
+    <!-- =====================================================
+         VOTE BUTTON
+    ====================================================== -->
+
+    <div class="vote-area" id="voteArea">
+
+        <a
+            href="YOUR_GOOGLE_FORM_URL_HERE"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="vote-button"
+        >
+            🗳️ VOTE FOR A GIRL TO MOVE ON
+        </a>
+
+    </div>
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="site-footer">
+
+    © 2026 MEGA Messy Tournament. All rights reserved.
+
+</footer>
+
+
+
+<!-- =========================================================
+     GROUP DATA / JAVASCRIPT
+========================================================= -->
+
+<script src="../../scripts/girls-data.js"></script>
+<script src="../../scripts/group.js"></script>
+
+
+</body>
+</html>

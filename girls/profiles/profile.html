@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Girl Profile | MEGA Messy Tournament</title>
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f6f8;
+    color: #222;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.site-header {
+    background: #111;
+    color: white;
+    width: 100%;
+}
+
+.header-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 18px 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.site-logo {
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.1;
+    white-space: nowrap;
+}
+
+.site-logo span {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    opacity: 0.7;
+    margin-top: 4px;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.main-nav > a,
+.dropdown-button {
+    color: white;
+    text-decoration: none;
+    background: transparent;
+    border: none;
+
+    padding: 10px 13px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    border-radius: 7px;
+
+    transition: background 0.2s ease;
+}
+
+.main-nav > a:hover,
+.dropdown-button:hover {
+    background: #2a2a2a;
+}
+
+
+/* =========================================================
+   DROPDOWNS
+========================================================= */
+
+.nav-dropdown {
+    position: relative;
+}
+
+.dropdown-button {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.dropdown-button span {
+    font-size: 16px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+
+    min-width: 210px;
+
+    background: white;
+
+    border-radius: 10px;
+
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+
+    padding: 7px;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-5px);
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        visibility 0.2s ease;
+
+    z-index: 1000;
+}
+
+.nav-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu a {
+    display: block;
+
+    color: #222;
+    text-decoration: none;
+
+    padding: 10px 12px;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    border-radius: 7px;
+}
+
+.dropdown-menu a:hover {
+    background: #f0f1f3;
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+main {
+    flex: 1;
+    width: 100%;
+}
+
+.profile-container {
+    max-width: 1250px;
+    margin: 0 auto;
+
+    padding: 55px 30px 75px;
+}
+
+
+/* =========================================================
+   PROFILE HEADING
+========================================================= */
+
+.profile-heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.profile-heading h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.profile-heading p {
+    color: #666;
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   PROFILE SECTION
+========================================================= */
+
+.profile-section {
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 6px 25px rgba(0, 0, 0, 0.08);
+
+    margin-bottom: 45px;
+}
+
+.profile-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 40px;
+
+    align-items: center;
+}
+
+
+/* =========================================================
+   IMAGE CAROUSEL
+========================================================= */
+
+.carousel {
+    position: relative;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    border-radius: 15px;
+
+    background: #eee;
+}
+
+.carousel-image-wrapper {
+    position: relative;
+
+    width: 100%;
+
+    height: 650px;
+
+    overflow: hidden;
+}
+
+.carousel-image {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    opacity: 0;
+
+    transition: opacity 0.5s ease;
+}
+
+.carousel-image.active {
+    opacity: 1;
+}
+
+
+/* =========================================================
+   CAROUSEL ARROWS
+========================================================= */
+
+.carousel-arrow {
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    color: white;
+
+    font-size: 27px;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 5;
+}
+
+.carousel-arrow:hover {
+    background: rgba(0, 0, 0, 0.9);
+
+    transform:
+        translateY(-50%)
+        scale(1.05);
+}
+
+.carousel-arrow.prev {
+    left: 15px;
+}
+
+.carousel-arrow.next {
+    right: 15px;
+}
+
+
+/* =========================================================
+   CAROUSEL DOTS
+========================================================= */
+
+.carousel-dots {
+    position: absolute;
+
+    bottom: 15px;
+
+    left: 0;
+    right: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    z-index: 5;
+}
+
+.carousel-dot {
+    width: 11px;
+    height: 11px;
+
+    border-radius: 50%;
+
+    border: 2px solid white;
+
+    background: rgba(0, 0, 0, 0.35);
+
+    cursor: pointer;
+}
+
+.carousel-dot.active {
+    background: white;
+
+    transform: scale(1.15);
+}
+
+
+/* =========================================================
+   PROFILE INFORMATION
+========================================================= */
+
+.profile-info {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+.girl-name {
+    font-size: 34px;
+    font-weight: 800;
+}
+
+.profile-field {
+    border-bottom: 1px solid #e5e5e5;
+
+    padding-bottom: 15px;
+}
+
+.profile-label {
+    display: block;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.8px;
+
+    color: #777;
+
+    margin-bottom: 5px;
+}
+
+.profile-value {
+    font-size: 16px;
+
+    line-height: 1.55;
+
+    color: #333;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.status {
+    display: inline-flex;
+
+    align-items: center;
+
+    width: fit-content;
+
+    padding: 9px 14px;
+
+    border-radius: 999px;
+
+    background: #e8f7ed;
+
+    color: #18743a;
+
+    font-size: 14px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   VOTE BUTTON
+========================================================= */
+
+.vote-button {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 100%;
+
+    padding: 18px 25px;
+
+    margin-top: 5px;
+
+    background: #111;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 12px;
+
+    font-size: 18px;
+
+    font-weight: 800;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.vote-button:hover {
+    background: #333;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================================
+   VIDEO SECTION
+========================================================= */
+
+.video-section {
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 6px 25px rgba(0, 0, 0, 0.08);
+}
+
+.section-heading {
+    text-align: center;
+
+    margin-bottom: 25px;
+}
+
+.section-heading h2 {
+    font-size: 28px;
+
+    margin-bottom: 8px;
+}
+
+.section-heading p {
+    color: #666;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   VIDEO PLAYER
+========================================================= */
+
+.custom-video-player {
+    position: relative;
+
+    width: 100%;
+
+    max-width: 1000px;
+
+    margin: 0 auto;
+
+    background: #000;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+}
+
+.video-wrapper {
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    background: #000;
+}
+
+.custom-video {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: contain;
+}
+
+.video-thumbnail {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: 2;
+
+    cursor: pointer;
+}
+
+.video-thumbnail.hidden {
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   VIDEO PLAY OVERLAY
+========================================================= */
+
+.video-play-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 3;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+.video-play-overlay.hidden {
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+.large-play-button {
+    width: 75px;
+    height: 75px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background: rgba(0, 0, 0, 0.75);
+
+    color: white;
+
+    font-size: 34px;
+
+    cursor: pointer;
+}
+
+.large-play-button:hover {
+    background: rgba(0, 0, 0, 0.95);
+
+    transform: scale(1.08);
+}
+
+
+/* =========================================================
+   VIDEO CONTROLS
+========================================================= */
+
+.video-controls {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    z-index: 5;
+
+    padding: 12px 15px;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0, 0, 0, 0.85)
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.control-button {
+    width: 40px;
+    height: 40px;
+
+    border: none;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    color: white;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+.control-button:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.progress-container {
+    flex: 1;
+
+    height: 6px;
+
+    background: rgba(255, 255, 255, 0.3);
+
+    border-radius: 20px;
+
+    cursor: pointer;
+}
+
+.progress-bar {
+    height: 100%;
+
+    width: 0%;
+
+    background: white;
+
+    border-radius: 20px;
+}
+
+.time-display {
+    color: white;
+
+    font-size: 13px;
+
+    min-width: 90px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.site-footer {
+    background: #111;
+
+    color: #aaa;
+
+    text-align: center;
+
+    padding: 25px 20px;
+
+    font-size: 13px;
+
+    margin-top: auto;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .header-inner {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .site-logo {
+        text-align: center;
+    }
+
+    .main-nav {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .carousel-image-wrapper {
+        height: 600px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .header-inner {
+        padding: 18px 15px;
+    }
+
+    .main-nav {
+        gap: 3px;
+    }
+
+    .main-nav > a,
+    .dropdown-button {
+        font-size: 12px;
+        padding: 8px 7px;
+    }
+
+    .profile-container {
+        padding: 35px 15px 50px;
+    }
+
+    .profile-heading h1 {
+        font-size: 30px;
+    }
+
+    .profile-section,
+    .video-section {
+        padding: 20px;
+    }
+
+    .girl-name {
+        font-size: 28px;
+    }
+
+    .carousel-image-wrapper {
+        height: 500px;
+    }
+
+}
+
+
+/* =========================================================
+   ERROR MESSAGE
+========================================================= */
+
+.profile-error {
+    text-align: center;
+
+    background: white;
+
+    padding: 50px;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 6px 25px rgba(0,0,0,0.08);
+}
+
+.profile-error h2 {
+    margin-bottom: 10px;
+}
+
+.profile-error p {
+    color: #666;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="site-header">
+
+    <div class="header-inner">
+
+        <a href="../index.html" class="site-logo">
+            MEGA Messy Tournament
+            <span>Season 1</span>
+        </a>
+
+        <nav class="main-nav">
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <div class="nav-dropdown">
+
+                <button class="dropdown-button">
+                    Qualifying Stage
+                    <span>⌄</span>
+                </button>
+
+                <div class="dropdown-menu">
+
+                    <a href="../qualifying/index.html">
+                        Qualifying Home
+                    </a>
+
+                    <a href="../qualifying/groups/index.html">
+                        Group Stages
+                    </a>
+
+                    <a href="../qualifying/wildcard.html">
+                        Wildcard Stage
+                    </a>
+
+                    <a href="../qualifying/eliminated.html">
+                        Eliminated Girls
+                    </a>
+
+                    <a href="../qualifying/qualified.html">
+                        Qualifying Girls
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="nav-dropdown">
+
+                <button class="dropdown-button">
+                    Tournament Stage
+                    <span>⌄</span>
+                </button>
+
+                <div class="dropdown-menu">
+
+                    <a href="../tournament/groups/index.html">
+                        Group Stages
+                    </a>
+
+                    <a href="../tournament/round32.html">
+                        Round of 32
+                    </a>
+
+                    <a href="../tournament/quarter-finals.html">
+                        Quarter Finals
+                    </a>
+
+                    <a href="../tournament/semi-finals.html">
+                        Semi Finals
+                    </a>
+
+                    <a href="../tournament/grand-finals.html">
+                        Grand Finals
+                    </a>
+
+                    <a href="../tournament/third-place.html">
+                        3rd Place Match
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="nav-dropdown">
+
+                <button class="dropdown-button">
+                    Girls Profiles
+                    <span>⌄</span>
+                </button>
+
+                <div class="dropdown-menu">
+
+                    <a href="profile.html?girl=001">Girl 001</a>
+                    <a href="profile.html?girl=002">Girl 002</a>
+                    <a href="profile.html?girl=003">Girl 003</a>
+                    <a href="profile.html?girl=004">Girl 004</a>
+                    <a href="profile.html?girl=005">Girl 005</a>
+                    <a href="profile.html?girl=006">Girl 006</a>
+                    <a href="profile.html?girl=007">Girl 007</a>
+                    <a href="profile.html?girl=008">Girl 008</a>
+                    <a href="profile.html?girl=009">Girl 009</a>
+                    <a href="profile.html?girl=010">Girl 010</a>
+
+                    <a href="profile.html?girl=011">Girl 011</a>
+                    <a href="profile.html?girl=012">Girl 012</a>
+                    <a href="profile.html?girl=013">Girl 013</a>
+                    <a href="profile.html?girl=014">Girl 014</a>
+                    <a href="profile.html?girl=015">Girl 015</a>
+                    <a href="profile.html?girl=016">Girl 016</a>
+                    <a href="profile.html?girl=017">Girl 017</a>
+                    <a href="profile.html?girl=018">Girl 018</a>
+                    <a href="profile.html?girl=019">Girl 019</a>
+                    <a href="profile.html?girl=020">Girl 020</a>
+
+                    <a href="profile.html?girl=021">Girl 021</a>
+                    <a href="profile.html?girl=022">Girl 022</a>
+                    <a href="profile.html?girl=023">Girl 023</a>
+                    <a href="profile.html?girl=024">Girl 024</a>
+                    <a href="profile.html?girl=025">Girl 025</a>
+                    <a href="profile.html?girl=026">Girl 026</a>
+                    <a href="profile.html?girl=027">Girl 027</a>
+                    <a href="profile.html?girl=028">Girl 028</a>
+                    <a href="profile.html?girl=029">Girl 029</a>
+                    <a href="profile.html?girl=030">Girl 030</a>
+
+                    <a href="profile.html?girl=031">Girl 031</a>
+                    <a href="profile.html?girl=032">Girl 032</a>
+                    <a href="profile.html?girl=033">Girl 033</a>
+                    <a href="profile.html?girl=034">Girl 034</a>
+                    <a href="profile.html?girl=035">Girl 035</a>
+                    <a href="profile.html?girl=036">Girl 036</a>
+                    <a href="profile.html?girl=037">Girl 037</a>
+                    <a href="profile.html?girl=038">Girl 038</a>
+                    <a href="profile.html?girl=039">Girl 039</a>
+                    <a href="profile.html?girl=040">Girl 040</a>
+
+                </div>
+
+            </div>
+
+
+            <a href="../news/index.html">
+                News
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main>
+
+    <div class="profile-container">
+
+        <div id="profileContent"></div>
+
+    </div>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="site-footer">
+
+    <p>
+        © 2026 MEGA Messy Tournament. All rights reserved.
+    </p>
+
+</footer>
+
+<script src="../../scripts/girls-data.js"></script>
+<script src="../../scripts/profile.js"></script>
+
+
+</body>
+
+</html>
