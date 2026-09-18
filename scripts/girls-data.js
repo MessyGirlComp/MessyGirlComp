@@ -37,40 +37,39 @@ const girls = {
     ===================================================== */
 
 
-    "001": {
-        id: "001",
-        name: "Amy",
-        age: "18",
-        bio: "Add Amy's biography here.",
-        appearance: "Add Amy's appearance description here.",
-        status: "Currently Competing",
-        group: 7,
-        from: "Wait For It"
-    },
+   "001": {
+    id: "001",
+    name: "Amy",
+    age: "12",
+    bio: "Gunge was horrible and sticky, with huge lumps in it, especially at the bottom. Despite how sticky it looked, Amy would still love to go in it.",
+    appearance: "Amy wears a bright pink, short-sleeved shirt with a smocked or gathered neckline and slightly puffed sleeves with gathered hems. She wears a textured maroon or deep red headband with a woven or braided appearance. Her medium-length blonde hair is pulled back from her face and gathered into a low ponytail at the nape of her neck, with a few loose wisps around her temples and ears.",
+    status: "Currently Competing",
+    group: 7,
+    from: "Wait For It"
+},
+
+   "003": {
+    id: "003",
+    name: "Grainne",
+    age: "13",
+    bio: "Grainne tried to avoid the gunge.",
+    appearance: "Grainne wears a purple shirt with a subtle star pattern, featuring short puffed sleeves, a rounded neckline and a small cutout detail on the upper chest. She wears dark fitted pants, along with a shiny pink headband and small stud earrings. Her medium-length dark brown hair is pulled back into a ponytail at the nape of her neck, with loose strands around her face and crown giving it a slightly casual finish.",
+    status: "Currently Competing",
+    group: 7,
+    from: "Wait For It"
+},
 
 
-    "003": {
-        id: "003",
-        name: "Grainne",
-        age: "18",
-        bio: "Add Grainne's biography here.",
-        appearance: "Add Grainne's appearance description here.",
-        status: "Currently Competing",
-        group: 7,
-        from: "Wait For It"
-    },
-
-
-    "004": {
-        id: "004",
-        name: "Aoife",
-        age: "18",
-        bio: "Add Aoife's biography here.",
-        appearance: "Add Aoife's appearance description here.",
-        status: "Currently Competing",
-        group: 7,
-        from: "Wait For It"
-    },
+   "004": {
+    id: "004",
+    name: "Aoife",
+    age: "11",
+    bio: "Aoife thinks she is a tough cookie.",
+    appearance: "Aoife wears a brown T-shirt with a white floral pattern, a rounded neckline and short sleeves, paired with jeans. Her hair is pulled back into two pigtails, each secured with a scrunchie.",
+    status: "Currently Competing",
+    group: 7,
+    from: "Wait For It"
+},
 
 
     "023": {
@@ -142,18 +141,16 @@ const girls = {
        GROUP 8
     ===================================================== */
 
-
-    "005": {
-        id: "005",
-        name: "Hannah",
-        age: "18",
-        bio: "Add Hannah's biography here.",
-        appearance: "Add Hannah's appearance description here.",
-        status: "Currently Competing",
-        group: 8,
-        from: "Wait For It"
-    },
-
+"005": {
+    id: "005",
+    name: "Hannah",
+    age: "11",
+    bio: "Hannah takes part in the competition with a fun, youthful and casual style.",
+    appearance: "Hannah wears a white T-shirt with a playful graphic print featuring script-style text, floral motifs with yellow and blue petals, and thin black branch-like or abstract designs. A name tag reading \"HANNAH\" in bold, stylized lettering is pinned to her shirt. She wears her blonde hair in two pigtails. The overall look is casual and youthful.",
+    status: "Currently Competing",
+    group: 8,
+    from: "Wait For It"
+},
 
     "028": {
         id: "028",
@@ -559,7 +556,624 @@ const girls = {
         status: "Currently Competing",
         group: 10,
         from: "Wait For It"
-    }
+    },
+	
+    "041": {
+        id: "041",
+        name: "Katie Jo",
+        age: "",
+        bio: "",
+        appearance: "",
+        status: "Currently Competing",
+        group: null,
+        from: "Dick and Dom"
+    },
+
+    "042": {
+        id: "042",
+        name: "Carloline",
+        age: "",
+        bio: "",
+        appearance: "",
+        status: "Currently Competing",
+        group: null,
+        from: "Dick and Dom"
+    },
+
+    "043": {
+        id: "043",
+        name: "Melisia",
+        age: "",
+        bio: "",
+        appearance: "",
+        status: "Currently Competing",
+        group: null,
+        from: "Dick and Dom"
+    },
+
+    "044": {
+        id: "044",
+        name: "Daisy",
+        age: "",
+        bio: "",
+        appearance: "",
+        status: "Currently Competing",
+        group: null,
+        from: "Dick and Dom"
+    },
+
+    "045": {
+        id: "045",
+        name: "Grace",
+        age: "",
+        bio: "",
+        appearance: "",
+        status: "Currently Competing",
+        group: null,
+        from: "Dick and Dom"
+    },
+
+"046": {
+    id: "046",
+    name: "Chantell",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"047": {
+    id: "047",
+    name: "Dainelle",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"048": {
+    id: "048",
+    name: "Rebecca",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"049": {
+    id: "049",
+    name: "Jessica",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"050": {
+    id: "050",
+    name: "Rosanna",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"051": {
+    id: "051",
+    name: "Sarah",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"052": {
+    id: "052",
+    name: "Tabatha",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"053": {
+    id: "053",
+    name: "Daisy",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"054": {
+    id: "054",
+    name: "Abigal",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"055": {
+    id: "055",
+    name: "Emma",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"056": {
+    id: "056",
+    name: "Harriert",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"057": {
+    id: "057",
+    name: "Jenifer",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"058": {
+    id: "058",
+    name: "Robyen",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"059": {
+    id: "059",
+    name: "Jenifer",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"060": {
+    id: "060",
+    name: "Megan M",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"061": {
+    id: "061",
+    name: "Gabbie",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"062": {
+    id: "062",
+    name: "Pagie",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"063": {
+    id: "063",
+    name: "Jade",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"064": {
+    id: "064",
+    name: "Maisie",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"065": {
+    id: "065",
+    name: "Rebbeca",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"066": {
+    id: "066",
+    name: "Faye",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"067": {
+    id: "067",
+    name: "Lauren",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"068": {
+    id: "068",
+    name: "Ashlie",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"069": {
+    id: "069",
+    name: "Amy",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"070": {
+    id: "070",
+    name: "Regan",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"071": {
+    id: "071",
+    name: "Charlie",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"072": {
+    id: "072",
+    name: "Katie",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"073": {
+    id: "073",
+    name: "Chelsie",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"074": {
+    id: "074",
+    name: "Lottie",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"075": {
+    id: "075",
+    name: "Jess",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"076": {
+    id: "076",
+    name: "Serena",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"077": {
+    id: "077",
+    name: "Jodie",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"078": {
+    id: "078",
+    name: "Carly",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"079": {
+    id: "079",
+    name: "Kayleigh",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"080": {
+    id: "080",
+    name: "Sammy",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"081": {
+    id: "081",
+    name: "Aisling",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"082": {
+    id: "082",
+    name: "Grace C",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"083": {
+    id: "083",
+    name: "Nell",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"084": {
+    id: "084",
+    name: "Lici",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"085": {
+    id: "085",
+    name: "Jess",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"086": {
+    id: "086",
+    name: "Chelesa",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"087": {
+    id: "087",
+    name: "Kate",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"088": {
+    id: "088",
+    name: "Maltida",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"089": {
+    id: "089",
+    name: "Amy",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"090": {
+    id: "090",
+    name: "Esther",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"091": {
+    id: "091",
+    name: "Becky",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"092": {
+    id: "092",
+    name: "Lily",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"093": {
+    id: "093",
+    name: "Jane",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"094": {
+    id: "094",
+    name: "Leaf",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"095": {
+    id: "095",
+    name: "Abbie",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+},
+
+"096": {
+    id: "096",
+    name: "Emma",
+    age: "",
+    bio: "",
+    appearance: "",
+    status: "Currently Competing",
+    group: null,
+    from: "Dick and Dom"
+}
+
 
 };
 

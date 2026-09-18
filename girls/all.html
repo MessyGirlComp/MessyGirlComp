@@ -327,6 +327,79 @@ main{
     border-radius:8px;
     font-weight:700;
 }
+	
+/* =========================================================
+   RESET FILTER BUTTON
+========================================================= */
+
+.reset-filter-button{
+    padding:12px 18px;
+
+    background:#111;
+    color:white;
+
+    border:none;
+    border-radius:8px;
+
+    font-size:15px;
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.reset-filter-button:hover{
+    background:#333;
+    transform:translateY(-1px);
+}
+
+.reset-filter-button:active{
+    transform:translateY(0);
+}
+
+
+/* =========================================================
+   FILTER RESPONSIVE LAYOUT
+========================================================= */
+
+@media(max-width:1000px){
+
+    .filter-top{
+        gap:12px;
+    }
+
+    .status-filter{
+        min-width:200px;
+    }
+
+    .search-box{
+        max-width:300px;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .filter-top{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .filter-label{
+        margin-top:5px;
+    }
+
+    .status-filter,
+    .search-box,
+    .reset-filter-button{
+        width:100%;
+        max-width:none;
+    }
+
+}
 
 /* =========================================================
    FOOTER
@@ -425,13 +498,15 @@ main{
         <p>Browse every contestant in the MEGA Messy Tournament.</p>
     </div>
 
-    <!-- =========================================================
+<!-- =========================================================
      FILTERS
 ========================================================= -->
 
 <div class="filters">
 
     <div class="filter-top">
+
+        <!-- STATUS -->
 
         <label for="statusFilter" class="filter-label">
             Status
@@ -457,6 +532,83 @@ main{
 
         </select>
 
+
+        <!-- MESS TYPE -->
+
+        <label for="messFilter" class="filter-label">
+            Mess Type
+        </label>
+
+        <select id="messFilter" class="status-filter">
+
+            <option value="all" selected>
+                All Mess Types
+            </option>
+
+            <option value="gunge">
+                Gunge
+            </option>
+
+            <option value="slime">
+                Slime
+            </option>
+
+            <option value="water">
+                Water
+            </option>
+
+            <option value="food">
+                Food
+            </option>
+
+            <option value="mud">
+                Mud
+            </option>
+
+            <option value="other">
+                Other
+            </option>
+
+        </select>
+
+
+        <!-- SOURCE -->
+
+        <label for="sourceFilter" class="filter-label">
+            Source
+        </label>
+
+        <select id="sourceFilter" class="status-filter">
+
+            <option value="all" selected>
+                All Sources
+            </option>
+
+            <option value="game-shows">
+                Game Shows
+            </option>
+
+            <option value="online-trends">
+                Online Trends
+            </option>
+
+            <option value="youtube">
+                YouTube
+            </option>
+
+            <option value="tv">
+                TV
+            </option>
+
+            <option value="other">
+                Other
+            </option>
+
+        </select>
+
+
+        <!-- SEARCH -->
+
         <input
             type="text"
             class="search-box"
@@ -464,453 +616,1084 @@ main{
             placeholder="Search girls..."
         >
 
-    </div>
+
+        <!-- RESET -->
+
+        <button
+            type="button"
+            class="reset-filter-button"
+            id="resetFilters"
+        >
+            Reset Filters
+        </button>
 
     </div>
 
+</div>
    <!-- GRID -->
 
 <div class="girls-grid" id="girlsGrid">
 
-    <!-- 001 -->
-    <div class="girl-card" data-status="remaining" data-name="Amy">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/001/001 A.png" class="girl-image" alt="Amy">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Amy</div>
-            <a href="profiles/profile.html?girl=001" class="profile-button">View Profile</a>
-        </div>
+<!-- 001 -->
+<div class="girl-card" data-status="remaining" data-name="Amy" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/001/001 A.png" class="girl-image" alt="Amy">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Amy</div>
+        <a href="profiles/profile.html?girl=001" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 002 -->
-    <div class="girl-card" data-status="remaining" data-name="Rachel">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/002/002 A.png" class="girl-image" alt="Rachel">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Rachel</div>
-            <a href="profiles/profile.html?girl=002" class="profile-button">View Profile</a>
-        </div>
+<!-- 002 -->
+<div class="girl-card" data-status="remaining" data-name="Rachel" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/002/002 A.png" class="girl-image" alt="Rachel">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Rachel</div>
+        <a href="profiles/profile.html?girl=002" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 003 -->
-    <div class="girl-card" data-status="remaining" data-name="Grainne">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/003/003 A.png" class="girl-image" alt="Grainne">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Grainne</div>
-            <a href="profiles/profile.html?girl=003" class="profile-button">View Profile</a>
-        </div>
+<!-- 003 -->
+<div class="girl-card" data-status="remaining" data-name="Grainne" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/003/003 A.png" class="girl-image" alt="Grainne">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Grainne</div>
+        <a href="profiles/profile.html?girl=003" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 004 -->
-    <div class="girl-card" data-status="remaining" data-name="Aoife">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/004/004 A.png" class="girl-image" alt="Aoife">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Aoife</div>
-            <a href="profiles/profile.html?girl=004" class="profile-button">View Profile</a>
-        </div>
+<!-- 004 -->
+<div class="girl-card" data-status="remaining" data-name="Aoife" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/004/004 A.png" class="girl-image" alt="Aoife">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Aoife</div>
+        <a href="profiles/profile.html?girl=004" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 005 -->
-    <div class="girl-card" data-status="remaining" data-name="Hannah">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/005/005 A.png" class="girl-image" alt="Hannah">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Hannah</div>
-            <a href="profiles/profile.html?girl=005" class="profile-button">View Profile</a>
-        </div>
+<!-- 005 -->
+<div class="girl-card" data-status="remaining" data-name="Hannah" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/005/005 A.png" class="girl-image" alt="Hannah">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Hannah</div>
+        <a href="profiles/profile.html?girl=005" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 006 -->
-    <div class="girl-card" data-status="remaining" data-name="Carolanne">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/006/006 A.png" class="girl-image" alt="Carolanne">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Carolanne</div>
-            <a href="profiles/profile.html?girl=006" class="profile-button">View Profile</a>
-        </div>
+<!-- 006 -->
+<div class="girl-card" data-status="remaining" data-name="Carolanne" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/006/006 A.png" class="girl-image" alt="Carolanne">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Carolanne</div>
+        <a href="profiles/profile.html?girl=006" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 007 -->
-    <div class="girl-card" data-status="remaining" data-name="Carrie">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/007/007 A.png" class="girl-image" alt="Carrie">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Carrie</div>
-            <a href="profiles/profile.html?girl=007" class="profile-button">View Profile</a>
-        </div>
+<!-- 007 -->
+<div class="girl-card" data-status="remaining" data-name="Carrie" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/007/007 A.png" class="girl-image" alt="Carrie">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Carrie</div>
+        <a href="profiles/profile.html?girl=007" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 008 -->
-    <div class="girl-card" data-status="remaining" data-name="Rachel">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/008/008 A.png" class="girl-image" alt="Rachel">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Rachel</div>
-            <a href="profiles/profile.html?girl=008" class="profile-button">View Profile</a>
-        </div>
+<!-- 008 -->
+<div class="girl-card" data-status="remaining" data-name="Rachel" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/008/008 A.png" class="girl-image" alt="Rachel">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Rachel</div>
+        <a href="profiles/profile.html?girl=008" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 009 -->
-    <div class="girl-card" data-status="remaining" data-name="Sarah">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/009/009 A.png" class="girl-image" alt="Sarah">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Sarah</div>
-            <a href="profiles/profile.html?girl=009" class="profile-button">View Profile</a>
-        </div>
+<!-- 009 -->
+<div class="girl-card" data-status="remaining" data-name="Sarah" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/009/009 A.png" class="girl-image" alt="Sarah">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Sarah</div>
+        <a href="profiles/profile.html?girl=009" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 010 -->
-    <div class="girl-card" data-status="remaining" data-name="Rebecca">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/010/010 A.png" class="girl-image" alt="Rebecca">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Rebecca</div>
-            <a href="profiles/profile.html?girl=010" class="profile-button">View Profile</a>
-        </div>
+<!-- 010 -->
+<div class="girl-card" data-status="remaining" data-name="Rebecca" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/010/010 A.png" class="girl-image" alt="Rebecca">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Rebecca</div>
+        <a href="profiles/profile.html?girl=010" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 011 -->
-    <div class="girl-card" data-status="remaining" data-name="Georgie">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/011/011 A.png" class="girl-image" alt="Georgie">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Georgie</div>
-            <a href="profiles/profile.html?girl=011" class="profile-button">View Profile</a>
-        </div>
+<!-- 011 -->
+<div class="girl-card" data-status="remaining" data-name="Georgie" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/011/011 A.png" class="girl-image" alt="Georgie">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Georgie</div>
+        <a href="profiles/profile.html?girl=011" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 012 -->
-    <div class="girl-card" data-status="remaining" data-name="Louisa">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/012/012 A.png" class="girl-image" alt="Louisa">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Louisa</div>
-            <a href="profiles/profile.html?girl=012" class="profile-button">View Profile</a>
-        </div>
+<!-- 012 -->
+<div class="girl-card" data-status="remaining" data-name="Louisa" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/012/012 A.png" class="girl-image" alt="Louisa">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Louisa</div>
+        <a href="profiles/profile.html?girl=012" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 013 -->
-    <div class="girl-card" data-status="remaining" data-name="Lisa">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/013/013 A.png" class="girl-image" alt="Lisa">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Lisa</div>
-            <a href="profiles/profile.html?girl=013" class="profile-button">View Profile</a>
-        </div>
+<!-- 013 -->
+<div class="girl-card" data-status="remaining" data-name="Lisa" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/013/013 A.png" class="girl-image" alt="Lisa">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Lisa</div>
+        <a href="profiles/profile.html?girl=013" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 014 -->
-    <div class="girl-card" data-status="remaining" data-name="Shannon">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/014/014 A.png" class="girl-image" alt="Shannon">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Shannon</div>
-            <a href="profiles/profile.html?girl=014" class="profile-button">View Profile</a>
-        </div>
+<!-- 014 -->
+<div class="girl-card" data-status="remaining" data-name="Shannon" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/014/014 A.png" class="girl-image" alt="Shannon">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Shannon</div>
+        <a href="profiles/profile.html?girl=014" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 015 -->
-    <div class="girl-card" data-status="remaining" data-name="Megan">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/015/015 A.png" class="girl-image" alt="Megan">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Megan</div>
-            <a href="profiles/profile.html?girl=015" class="profile-button">View Profile</a>
-        </div>
+<!-- 015 -->
+<div class="girl-card" data-status="remaining" data-name="Megan" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/015/015 A.png" class="girl-image" alt="Megan">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Megan</div>
+        <a href="profiles/profile.html?girl=015" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 016 -->
-    <div class="girl-card" data-status="remaining" data-name="Chloe">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/016/016 A.png" class="girl-image" alt="Chloe">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Chloe</div>
-            <a href="profiles/profile.html?girl=016" class="profile-button">View Profile</a>
-        </div>
+<!-- 016 -->
+<div class="girl-card" data-status="remaining" data-name="Chloe" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/016/016 A.png" class="girl-image" alt="Chloe">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Chloe</div>
+        <a href="profiles/profile.html?girl=016" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 017 -->
-    <div class="girl-card" data-status="remaining" data-name="Georgia">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/017/017 A.png" class="girl-image" alt="Georgia">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Georgia</div>
-            <a href="profiles/profile.html?girl=017" class="profile-button">View Profile</a>
-        </div>
+<!-- 017 -->
+<div class="girl-card" data-status="remaining" data-name="Georgia" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/017/017 A.png" class="girl-image" alt="Georgia">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Georgia</div>
+        <a href="profiles/profile.html?girl=017" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 018 -->
-    <div class="girl-card" data-status="remaining" data-name="Vicky">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/018/018 A.png" class="girl-image" alt="Vicky">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Vicky</div>
-            <a href="profiles/profile.html?girl=018" class="profile-button">View Profile</a>
-        </div>
+<!-- 018 -->
+<div class="girl-card" data-status="remaining" data-name="Vicky" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/018/018 A.png" class="girl-image" alt="Vicky">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Vicky</div>
+        <a href="profiles/profile.html?girl=018" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 019 -->
-    <div class="girl-card" data-status="remaining" data-name="Rachel">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/019/019 A.png" class="girl-image" alt="Rachel">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Rachel</div>
-            <a href="profiles/profile.html?girl=019" class="profile-button">View Profile</a>
-        </div>
+<!-- 019 -->
+<div class="girl-card" data-status="remaining" data-name="Rachel" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/019/019 A.png" class="girl-image" alt="Rachel">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Rachel</div>
+        <a href="profiles/profile.html?girl=019" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 020 -->
-    <div class="girl-card" data-status="remaining" data-name="Ellie">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/020/020 A.png" class="girl-image" alt="Ellie">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Ellie</div>
-            <a href="profiles/profile.html?girl=020" class="profile-button">View Profile</a>
-        </div>
+<!-- 020 -->
+<div class="girl-card" data-status="remaining" data-name="Ellie" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/020/020 A.png" class="girl-image" alt="Ellie">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Ellie</div>
+        <a href="profiles/profile.html?girl=020" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 021 -->
-    <div class="girl-card" data-status="remaining" data-name="Jacqueline">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/021/021 A.png" class="girl-image" alt="Jacqueline">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Jacqueline</div>
-            <a href="profiles/profile.html?girl=021" class="profile-button">View Profile</a>
-        </div>
+<!-- 021 -->
+<div class="girl-card" data-status="remaining" data-name="Jacqueline" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/021/021 A.png" class="girl-image" alt="Jacqueline">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Jacqueline</div>
+        <a href="profiles/profile.html?girl=021" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 022 -->
-    <div class="girl-card" data-status="remaining" data-name="Nina">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/022/022 A.png" class="girl-image" alt="Nina">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Nina</div>
-            <a href="profiles/profile.html?girl=022" class="profile-button">View Profile</a>
-        </div>
+<!-- 022 -->
+<div class="girl-card" data-status="remaining" data-name="Nina" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/022/022 A.png" class="girl-image" alt="Nina">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Nina</div>
+        <a href="profiles/profile.html?girl=022" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 023 -->
-    <div class="girl-card" data-status="remaining" data-name="Katherine">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/023/023 A.png" class="girl-image" alt="Katherine">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Katherine</div>
-            <a href="profiles/profile.html?girl=023" class="profile-button">View Profile</a>
-        </div>
+<!-- 023 -->
+<div class="girl-card" data-status="remaining" data-name="Katherine" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/023/023 A.png" class="girl-image" alt="Katherine">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Katherine</div>
+        <a href="profiles/profile.html?girl=023" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 024 -->
-    <div class="girl-card" data-status="remaining" data-name="Katie">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/024/024 A.png" class="girl-image" alt="Katie">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Katie</div>
-            <a href="profiles/profile.html?girl=024" class="profile-button">View Profile</a>
-        </div>
+<!-- 024 -->
+<div class="girl-card" data-status="remaining" data-name="Katie" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/024/024 A.png" class="girl-image" alt="Katie">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Katie</div>
+        <a href="profiles/profile.html?girl=024" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 025 -->
-    <div class="girl-card" data-status="remaining" data-name="Joanna">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/025/025 A.png" class="girl-image" alt="Joanna">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Joanna</div>
-            <a href="profiles/profile.html?girl=025" class="profile-button">View Profile</a>
-        </div>
+<!-- 025 -->
+<div class="girl-card" data-status="remaining" data-name="Joanna" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/025/025 A.png" class="girl-image" alt="Joanna">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Joanna</div>
+        <a href="profiles/profile.html?girl=025" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 026 -->
-    <div class="girl-card" data-status="remaining" data-name="Ruth">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/026/026 A.png" class="girl-image" alt="Ruth">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Ruth</div>
-            <a href="profiles/profile.html?girl=026" class="profile-button">View Profile</a>
-        </div>
+<!-- 026 -->
+<div class="girl-card" data-status="remaining" data-name="Ruth" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/026/026 A.png" class="girl-image" alt="Ruth">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Ruth</div>
+        <a href="profiles/profile.html?girl=026" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 027 -->
-    <div class="girl-card" data-status="remaining" data-name="Courtney">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/027/027 A.png" class="girl-image" alt="Courtney">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Courtney</div>
-            <a href="profiles/profile.html?girl=027" class="profile-button">View Profile</a>
-        </div>
+<!-- 027 -->
+<div class="girl-card" data-status="remaining" data-name="Courtney" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/027/027 A.png" class="girl-image" alt="Courtney">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Courtney</div>
+        <a href="profiles/profile.html?girl=027" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 028 -->
-    <div class="girl-card" data-status="remaining" data-name="Amy">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/028/028 A.png" class="girl-image" alt="Amy">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Amy</div>
-            <a href="profiles/profile.html?girl=028" class="profile-button">View Profile</a>
-        </div>
+<!-- 028 -->
+<div class="girl-card" data-status="remaining" data-name="Amy" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/028/028 A.png" class="girl-image" alt="Amy">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Amy</div>
+        <a href="profiles/profile.html?girl=028" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 029 -->
-    <div class="girl-card" data-status="remaining" data-name="Cally">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/029/029 A.png" class="girl-image" alt="Cally">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Cally</div>
-            <a href="profiles/profile.html?girl=029" class="profile-button">View Profile</a>
-        </div>
+<!-- 029 -->
+<div class="girl-card" data-status="remaining" data-name="Cally" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/029/029 A.png" class="girl-image" alt="Cally">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Cally</div>
+        <a href="profiles/profile.html?girl=029" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 030 -->
-    <div class="girl-card" data-status="remaining" data-name="Charlotte">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/030/030 A.png" class="girl-image" alt="Charlotte">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Charlotte</div>
-            <a href="profiles/profile.html?girl=030" class="profile-button">View Profile</a>
-        </div>
+<!-- 030 -->
+<div class="girl-card" data-status="remaining" data-name="Charlotte" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/030/030 A.png" class="girl-image" alt="Charlotte">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Charlotte</div>
+        <a href="profiles/profile.html?girl=030" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 031 -->
-    <div class="girl-card" data-status="remaining" data-name="Chelsea">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/031/031 A.png" class="girl-image" alt="Chelsea">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Chelsea</div>
-            <a href="profiles/profile.html?girl=031" class="profile-button">View Profile</a>
-        </div>
+<!-- 031 -->
+<div class="girl-card" data-status="remaining" data-name="Chelsea" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/031/031 A.png" class="girl-image" alt="Chelsea">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Chelsea</div>
+        <a href="profiles/profile.html?girl=031" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 032 -->
-    <div class="girl-card" data-status="remaining" data-name="Sarah">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/032/032 A.png" class="girl-image" alt="Sarah">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Sarah</div>
-            <a href="profiles/profile.html?girl=032" class="profile-button">View Profile</a>
-        </div>
+<!-- 032 -->
+<div class="girl-card" data-status="remaining" data-name="Sarah" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/032/032 A.png" class="girl-image" alt="Sarah">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Sarah</div>
+        <a href="profiles/profile.html?girl=032" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 033 -->
-    <div class="girl-card" data-status="remaining" data-name="Emily">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/033/033 A.png" class="girl-image" alt="Emily">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Emily</div>
-            <a href="profiles/profile.html?girl=033" class="profile-button">View Profile</a>
-        </div>
+<!-- 033 -->
+<div class="girl-card" data-status="remaining" data-name="Emily" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/033/033 A.png" class="girl-image" alt="Emily">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Emily</div>
+        <a href="profiles/profile.html?girl=033" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 034 -->
-    <div class="girl-card" data-status="remaining" data-name="Iona">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/034/034 A.png" class="girl-image" alt="Iona">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Iona</div>
-            <a href="profiles/profile.html?girl=034" class="profile-button">View Profile</a>
-        </div>
+<!-- 034 -->
+<div class="girl-card" data-status="remaining" data-name="Iona" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/034/034 A.png" class="girl-image" alt="Iona">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Iona</div>
+        <a href="profiles/profile.html?girl=034" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 035 -->
-    <div class="girl-card" data-status="remaining" data-name="Ruth">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/035/035 A.png" class="girl-image" alt="Ruth">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Ruth</div>
-            <a href="profiles/profile.html?girl=035" class="profile-button">View Profile</a>
-        </div>
+<!-- 035 -->
+<div class="girl-card" data-status="remaining" data-name="Ruth" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/035/035 A.png" class="girl-image" alt="Ruth">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Ruth</div>
+        <a href="profiles/profile.html?girl=035" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 036 -->
-    <div class="girl-card" data-status="remaining" data-name="Holly">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/036/036 A.png" class="girl-image" alt="Holly">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Holly</div>
-            <a href="profiles/profile.html?girl=036" class="profile-button">View Profile</a>
-        </div>
+<!-- 036 -->
+<div class="girl-card" data-status="remaining" data-name="Holly" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/036/036 A.png" class="girl-image" alt="Holly">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Holly</div>
+        <a href="profiles/profile.html?girl=036" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 037 -->
-    <div class="girl-card" data-status="remaining" data-name="Madison">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/037/037 A.png" class="girl-image" alt="Madison">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Madison</div>
-            <a href="profiles/profile.html?girl=037" class="profile-button">View Profile</a>
-        </div>
+<!-- 037 -->
+<div class="girl-card" data-status="remaining" data-name="Madison" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/037/037 A.png" class="girl-image" alt="Madison">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Madison</div>
+        <a href="profiles/profile.html?girl=037" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 038 -->
-    <div class="girl-card" data-status="remaining" data-name="Kate">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/038/038 A.png" class="girl-image" alt="Kate">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Kate</div>
-            <a href="profiles/profile.html?girl=038" class="profile-button">View Profile</a>
-        </div>
+<!-- 038 -->
+<div class="girl-card" data-status="remaining" data-name="Kate" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/038/038 A.png" class="girl-image" alt="Kate">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Kate</div>
+        <a href="profiles/profile.html?girl=038" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 039 -->
-    <div class="girl-card" data-status="remaining" data-name="Ellen">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/039/039 A.png" class="girl-image" alt="Ellen">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Ellen</div>
-            <a href="profiles/profile.html?girl=039" class="profile-button">View Profile</a>
-        </div>
+<!-- 039 -->
+<div class="girl-card" data-status="remaining" data-name="Ellen" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/039/039 A.png" class="girl-image" alt="Ellen">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Ellen</div>
+        <a href="profiles/profile.html?girl=039" class="profile-button">View Profile</a>
+    </div>
+</div>
 
-    <!-- 040 -->
-    <div class="girl-card" data-status="remaining" data-name="Erin">
-        <div class="girl-image-wrapper">
-            <img src="../girls/profiles/Wait For It/040/040 A.png" class="girl-image" alt="Erin">
-        </div>
-        <div class="girl-info">
-            <div class="girl-name">Erin</div>
-            <a href="profiles/profile.html?girl=040" class="profile-button">View Profile</a>
-        </div>
+<!-- 040 -->
+<div class="girl-card" data-status="remaining" data-name="Erin" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Wait For It/040/040 A.png" class="girl-image" alt="Erin">
     </div>
+    <div class="girl-info">
+        <div class="girl-name">Erin</div>
+        <a href="profiles/profile.html?girl=040" class="profile-button">View Profile</a>
+    </div>
+</div>
+	
+<!-- 041 -->
+<div class="girl-card" data-status="remaining" data-name="Katie Jo" data-mess-type="slime" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/041/041 A.png" class="girl-image" alt="Katie Jo">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Katie Jo</div>
+        <a href="profiles/profile.html?girl=041" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+
+<!-- 042 -->
+<div class="girl-card" data-status="remaining" data-name="Carloline" data-mess-type="slime" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/042/042 A.png" class="girl-image" alt="Carloline">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Carloline</div>
+        <a href="profiles/profile.html?girl=042" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+
+<!-- 043 -->
+<div class="girl-card" data-status="remaining" data-name="Melisia" data-mess-type="food" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/043/043 A.png" class="girl-image" alt="Melisia">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Melisia</div>
+        <a href="profiles/profile.html?girl=043" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+
+<!-- 044 -->
+<div class="girl-card" data-status="remaining" data-name="Daisy" data-mess-type="food" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/044/044 A.png" class="girl-image" alt="Daisy">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Daisy</div>
+        <a href="profiles/profile.html?girl=044" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+
+<!-- 045 -->
+<div class="girl-card" data-status="remaining" data-name="Grace" data-mess-type="slime" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/045/045 A.png" class="girl-image" alt="Grace">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Grace</div>
+        <a href="profiles/profile.html?girl=045" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+
+<!-- 046 -->
+<div class="girl-card" data-status="remaining" data-name="Chantell" data-mess-type="slime" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/046/046 A.png" class="girl-image" alt="Chantell">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Chantell</div>
+        <a href="profiles/profile.html?girl=046" class="profile-button">View Profile</a>
+    </div>
+</div>
+	
+<!-- 047 -->
+<div class="girl-card" data-status="remaining" data-name="Dainelle" data-mess-type="slime" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/047/047 A.png" class="girl-image" alt="Dainelle">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Dainelle</div>
+        <a href="profiles/profile.html?girl=047" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 048 -->
+<div class="girl-card" data-status="remaining" data-name="Rebecca" data-mess-type="slime" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/048/048 A.png" class="girl-image" alt="Rebecca">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Rebecca</div>
+        <a href="profiles/profile.html?girl=048" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 049 -->
+<div class="girl-card" data-status="remaining" data-name="Jessica" data-mess-type="water" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/049/049 A.png" class="girl-image" alt="Jessica">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Jessica</div>
+        <a href="profiles/profile.html?girl=049" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 050 -->
+<div class="girl-card" data-status="remaining" data-name="Rosanna" data-mess-type="other" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/050/050 A.png" class="girl-image" alt="Rosanna">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Rosanna</div>
+        <a href="profiles/profile.html?girl=050" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 051 -->
+<div class="girl-card" data-status="remaining" data-name="Sarah" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/051/051 A.png" class="girl-image" alt="Sarah">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Sarah</div>
+        <a href="profiles/profile.html?girl=051" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 052 -->
+<div class="girl-card" data-status="remaining" data-name="Tabatha" data-mess-type="slime" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/052/052 A.png" class="girl-image" alt="Tabatha">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Tabatha</div>
+        <a href="profiles/profile.html?girl=052" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 053 -->
+<div class="girl-card" data-status="remaining" data-name="Daisy" data-mess-type="slime" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/053/053 A.png" class="girl-image" alt="Daisy">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Daisy</div>
+        <a href="profiles/profile.html?girl=053" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 054 -->
+<div class="girl-card" data-status="remaining" data-name="Abigal" data-mess-type="slime" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/054/054 A.png" class="girl-image" alt="Abigal">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Abigal</div>
+        <a href="profiles/profile.html?girl=054" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 055 -->
+<div class="girl-card" data-status="remaining" data-name="Emma" data-mess-type="food" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/055/055 A.png" class="girl-image" alt="Emma">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Emma</div>
+        <a href="profiles/profile.html?girl=055" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 056 -->
+<div class="girl-card" data-status="remaining" data-name="Harriert" data-mess-type="slime" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/056/056 A.png" class="girl-image" alt="Harriert">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Harriert</div>
+        <a href="profiles/profile.html?girl=056" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 057 -->
+<div class="girl-card" data-status="remaining" data-name="Jenifer" data-mess-type="slime" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/057/057 A.png" class="girl-image" alt="Jenifer">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Jenifer</div>
+        <a href="profiles/profile.html?girl=057" class="profile-button">View Profile</a>
+    </div>
+</div>
+	
+	<!-- 058 -->
+<div class="girl-card" data-status="remaining" data-name="Robyen" data-mess-type="slime" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/058/058 A.png" class="girl-image" alt="Robyen">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Robyen</div>
+        <a href="profiles/profile.html?girl=058" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 059 -->
+<div class="girl-card" data-status="remaining" data-name="Jenifer" data-mess-type="food" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/059/059 A.png" class="girl-image" alt="Jenifer">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Jenifer</div>
+        <a href="profiles/profile.html?girl=059" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 060 -->
+<div class="girl-card" data-status="remaining" data-name="Megan M" data-mess-type="slime" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/060/060 A.png" class="girl-image" alt="Megan M">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Megan M</div>
+        <a href="profiles/profile.html?girl=060" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 061 -->
+<div class="girl-card" data-status="remaining" data-name="Gabbie" data-mess-type="slime" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/061/061 A.png" class="girl-image" alt="Gabbie">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Gabbie</div>
+        <a href="profiles/profile.html?girl=061" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 062 -->
+<div class="girl-card" data-status="remaining" data-name="Pagie" data-mess-type="food" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/062/062 A.png" class="girl-image" alt="Pagie">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Pagie</div>
+        <a href="profiles/profile.html?girl=062" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 063 -->
+<div class="girl-card" data-status="remaining" data-name="Jade" data-mess-type="slime" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/063/063 A.png" class="girl-image" alt="Jade">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Jade</div>
+        <a href="profiles/profile.html?girl=063" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 064 -->
+<div class="girl-card" data-status="remaining" data-name="Maisie" data-mess-type="other" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/064/064 A.png" class="girl-image" alt="Maisie">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Maisie</div>
+        <a href="profiles/profile.html?girl=064" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 065 -->
+<div class="girl-card" data-status="remaining" data-name="Rebbeca" data-mess-type="slime" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/065/065 A.png" class="girl-image" alt="Rebbeca">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Rebbeca</div>
+        <a href="profiles/profile.html?girl=065" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 066 -->
+<div class="girl-card" data-status="remaining" data-name="Faye" data-mess-type="slime" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/066/066 A.png" class="girl-image" alt="Faye">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Faye</div>
+        <a href="profiles/profile.html?girl=066" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 067 -->
+<div class="girl-card" data-status="remaining" data-name="Lauren" data-mess-type="food" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/067/067 A.png" class="girl-image" alt="Lauren">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Lauren</div>
+        <a href="profiles/profile.html?girl=067" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 068 -->
+<div class="girl-card" data-status="remaining" data-name="Ashlie" data-mess-type="food" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/068/068 A.png" class="girl-image" alt="Ashlie">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Ashlie</div>
+        <a href="profiles/profile.html?girl=068" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 069 -->
+<div class="girl-card" data-status="remaining" data-name="Amy" data-mess-type="food" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/069/069 A.png" class="girl-image" alt="Amy">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Amy</div>
+        <a href="profiles/profile.html?girl=069" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 070 -->
+<div class="girl-card" data-status="remaining" data-name="Regan" data-mess-type="food" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/070/070 A.png" class="girl-image" alt="Regan">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Regan</div>
+        <a href="profiles/profile.html?girl=070" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 071 -->
+<div class="girl-card" data-status="remaining" data-name="Charlie" data-mess-type="food" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/071/071 A.png" class="girl-image" alt="Charlie">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Charlie</div>
+        <a href="profiles/profile.html?girl=071" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 072 -->
+<div class="girl-card" data-status="remaining" data-name="Katie" data-mess-type="slime" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/072/072 A.png" class="girl-image" alt="Katie">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Katie</div>
+        <a href="profiles/profile.html?girl=072" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 073 -->
+<div class="girl-card" data-status="remaining" data-name="Chelsie" data-mess-type="slime" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/073/073 A.png" class="girl-image" alt="Chelsie">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Chelsie</div>
+        <a href="profiles/profile.html?girl=073" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 074 -->
+<div class="girl-card" data-status="remaining" data-name="Lottie" data-mess-type="slime" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/074/074 A.png" class="girl-image" alt="Lottie">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Lottie</div>
+        <a href="profiles/profile.html?girl=074" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 075 -->
+<div class="girl-card" data-status="remaining" data-name="Jess" data-mess-type="foam" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/075/075 A.png" class="girl-image" alt="Jess">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Jess</div>
+        <a href="profiles/profile.html?girl=075" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 076 -->
+<div class="girl-card" data-status="remaining" data-name="Serena" data-mess-type="slime" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/076/076 A.png" class="girl-image" alt="Serena">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Serena</div>
+        <a href="profiles/profile.html?girl=076" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 077 -->
+<div class="girl-card" data-status="remaining" data-name="Jodie" data-mess-type="food" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/077/077 A.png" class="girl-image" alt="Jodie">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Jodie</div>
+        <a href="profiles/profile.html?girl=077" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 078 -->
+<div class="girl-card" data-status="remaining" data-name="Carly" data-mess-type="food" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/078/078 A.png" class="girl-image" alt="Carly">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Carly</div>
+        <a href="profiles/profile.html?girl=078" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 079 -->
+<div class="girl-card" data-status="remaining" data-name="Kayleigh" data-mess-type="food" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/079/079 A.png" class="girl-image" alt="Kayleigh">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Kayleigh</div>
+        <a href="profiles/profile.html?girl=079" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 080 -->
+<div class="girl-card" data-status="remaining" data-name="Sammy" data-mess-type="slime" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/080/080 A.png" class="girl-image" alt="Sammy">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Sammy</div>
+        <a href="profiles/profile.html?girl=080" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 081 -->
+<div class="girl-card" data-status="remaining" data-name="Aisling" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/081/081 A.png" class="girl-image" alt="Aisling">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Aisling</div>
+        <a href="profiles/profile.html?girl=081" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 082 -->
+<div class="girl-card" data-status="remaining" data-name="Grace C" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/082/082 A.png" class="girl-image" alt="Grace C">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Grace C</div>
+        <a href="profiles/profile.html?girl=082" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 083 -->
+<div class="girl-card" data-status="remaining" data-name="Nell" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/083/083 A.png" class="girl-image" alt="Nell">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Nell</div>
+        <a href="profiles/profile.html?girl=083" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 084 -->
+<div class="girl-card" data-status="remaining" data-name="Lici" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/084/084 A.png" class="girl-image" alt="Lici">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Lici</div>
+        <a href="profiles/profile.html?girl=084" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 085 -->
+<div class="girl-card" data-status="remaining" data-name="Jess" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/085/085 A.png" class="girl-image" alt="Jess">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Jess</div>
+        <a href="profiles/profile.html?girl=085" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 086 -->
+<div class="girl-card" data-status="remaining" data-name="Chelesa" data-mess-type="slime" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/086/086 A.png" class="girl-image" alt="Chelesa">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Chelesa</div>
+        <a href="profiles/profile.html?girl=086" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 087 -->
+<div class="girl-card" data-status="remaining" data-name="Kate" data-mess-type="slime" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/087/087 A.png" class="girl-image" alt="Kate">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Kate</div>
+        <a href="profiles/profile.html?girl=087" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 088 -->
+<div class="girl-card" data-status="remaining" data-name="Maltida" data-mess-type="water" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/088/088 A.png" class="girl-image" alt="Maltida">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Maltida</div>
+        <a href="profiles/profile.html?girl=088" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 089 -->
+<div class="girl-card" data-status="remaining" data-name="Amy" data-mess-type="water" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/089/089 A.png" class="girl-image" alt="Amy">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Amy</div>
+        <a href="profiles/profile.html?girl=089" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 090 -->
+<div class="girl-card" data-status="remaining" data-name="Esther" data-mess-type="water" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/090/090 A.png" class="girl-image" alt="Esther">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Esther</div>
+        <a href="profiles/profile.html?girl=090" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 091 -->
+<div class="girl-card" data-status="remaining" data-name="Becky" data-mess-type="water" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/091/091 A.png" class="girl-image" alt="Becky">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Becky</div>
+        <a href="profiles/profile.html?girl=091" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 092 -->
+<div class="girl-card" data-status="remaining" data-name="Lily" data-mess-type="water" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/092/092 A.png" class="girl-image" alt="Lily">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Lily</div>
+        <a href="profiles/profile.html?girl=092" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 093 -->
+<div class="girl-card" data-status="remaining" data-name="Jane" data-mess-type="slime" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/093/093 A.png" class="girl-image" alt="Jane">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Jane</div>
+        <a href="profiles/profile.html?girl=093" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 094 -->
+<div class="girl-card" data-status="remaining" data-name="Leaf" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/094/094 A.png" class="girl-image" alt="Leaf">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Leaf</div>
+        <a href="profiles/profile.html?girl=094" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 095 -->
+<div class="girl-card" data-status="remaining" data-name="Abbie" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/095/095 A.png" class="girl-image" alt="Abbie">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Abbie</div>
+        <a href="profiles/profile.html?girl=095" class="profile-button">View Profile</a>
+    </div>
+</div>
+
+<!-- 096 -->
+<div class="girl-card" data-status="remaining" data-name="Emma" data-mess-type="gunge" data-source="game-shows">
+    <div class="girl-image-wrapper">
+        <img src="../girls/profiles/Dick and Dom/096/096 A.png" class="girl-image" alt="Emma">
+    </div>
+    <div class="girl-info">
+        <div class="girl-name">Emma</div>
+        <a href="profiles/profile.html?girl=096" class="profile-button">View Profile</a>
+    </div>
+</div>
 
 </div>
 </div>
@@ -931,38 +1714,78 @@ main{
 <script>
 
 const statusFilter = document.getElementById("statusFilter");
-const cards = document.querySelectorAll(".girl-card");
+const messFilter = document.getElementById("messFilter");
+const sourceFilter = document.getElementById("sourceFilter");
 const searchBox = document.getElementById("searchBox");
+const resetFilters = document.getElementById("resetFilters");
 
-let currentFilter = "all";
+const cards = document.querySelectorAll(".girl-card");
 
-statusFilter.addEventListener("change", () => {
 
-    currentFilter = statusFilter.value;
-
-    updateCards();
-
-});
-
-searchBox.addEventListener("input", updateCards);
+/* =========================================================
+   UPDATE FILTERS
+========================================================= */
 
 function updateCards(){
 
-    const search = searchBox.value.toLowerCase().trim();
+    const statusValue = statusFilter.value;
+    const messValue = messFilter.value;
+    const sourceValue = sourceFilter.value;
+
+    const searchValue =
+        searchBox.value.toLowerCase().trim();
+
 
     cards.forEach(card => {
 
-        const status = card.dataset.status;
-        const name = card.dataset.name.toLowerCase();
+        const status =
+            card.dataset.status || "";
+
+        const name =
+            (card.dataset.name || "").toLowerCase();
+
+        const messType =
+            card.dataset.messType || "";
+
+        const source =
+            card.dataset.source || "";
+
+
+        /* STATUS */
 
         const statusMatch =
-            currentFilter === "all" ||
-            status === currentFilter;
+            statusValue === "all" ||
+            status === statusValue;
+
+
+        /* MESS TYPE */
+
+        const messMatch =
+            messValue === "all" ||
+            messType === messValue;
+
+
+        /* SOURCE */
+
+        const sourceMatch =
+            sourceValue === "all" ||
+            source === sourceValue;
+
+
+        /* SEARCH */
 
         const searchMatch =
-            name.includes(search);
+            name.includes(searchValue);
 
-        if(statusMatch && searchMatch){
+
+        /* FINAL RESULT */
+
+        if(
+            statusMatch &&
+            messMatch &&
+            sourceMatch &&
+            searchMatch
+        ){
 
             card.style.display = "";
 
@@ -976,8 +1799,51 @@ function updateCards(){
 
 }
 
+
+/* =========================================================
+   FILTER EVENTS
+========================================================= */
+
+statusFilter.addEventListener(
+    "change",
+    updateCards
+);
+
+messFilter.addEventListener(
+    "change",
+    updateCards
+);
+
+sourceFilter.addEventListener(
+    "change",
+    updateCards
+);
+
+searchBox.addEventListener(
+    "input",
+    updateCards
+);
+
+
+/* =========================================================
+   RESET FILTERS
+========================================================= */
+
+resetFilters.addEventListener("click", () => {
+
+    statusFilter.value = "all";
+
+    messFilter.value = "all";
+
+    sourceFilter.value = "all";
+
+    searchBox.value = "";
+
+    updateCards();
+
+});
+
 </script>
-	
 
 
 </body>
